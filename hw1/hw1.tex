@@ -1,0 +1,695 @@
+\documentclass{article}
+\title{HW 1}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref} % for hyperlinks
+\usepackage{amssymb}
+\usepackage{authblk}
+\author{Joshua Ortiga}
+\begin{document}
+
+\maketitle
+
+\textbf{Problem 1.1.} \hspace{0.2cm} Let $x, y, z \in \mathbb{R}$
+
+\hspace*{1cm}
+\begin{minipage}{.8\textwidth} 
+	\hfill
+
+	1. $\forall x \exists y \hspace{0.2cm} s.t. \hspace{0.2cm} x + y = 1$
+
+	True
+
+	Negation: 
+	$\neg (\forall x \exists y \hspace{0.2cm} s.t. \hspace{0.2cm} x + y = 1) 
+	= \exists x \forall y\hspace{0.2cm} s.t. \hspace{0.2cm} x + y \neq 1$ \\
+
+	2. $\exists x \forall y \hspace{0.2cm} s.t. \hspace{0.2cm} x + y = 1$
+
+	True 
+
+	Negation: 
+	$\neg (\exists x \forall y \hspace{0.2cm} s.t. \hspace{0.2cm} x + y = 1)$
+	= $\forall x \exists y \hspace{0.2cm} s.t. \hspace{0.2cm} x + y \neq 1$ \\
+
+	3. $\exists x \exists y \forall z \hspace{0.2cm} s.t. \hspace{0.2cm} yz = x$
+
+	True 
+
+	Negation: 
+	$\neg (\exists x \exists y \forall z \hspace{0.2cm} s.t. \hspace{0.2cm} yz = x)$ = 
+	$\forall x \forall y \exists z \hspace{0.2cm} s.t. \hspace{0.2cm} yz \neq x$\\
+
+\end{minipage}
+
+\textbf{Problem 1.2.} $\hspace{0.2cm}$ Show that if a condition P is both necessary ($\overline{P}$ $\Rightarrow$ $\overline{Q}$) and 
+
+sufficient (P $\Rightarrow$ Q), that this is logically equivalent to P = Q. \\
+
+\begin{displaymath}
+\begin{array}{|c c|c|c|c|c|}
+	p & q & p \Rightarrow q & \overline{p} \Rightarrow \overline {q} & (\overline{p} \Rightarrow \overline{q}) \land (p \Rightarrow q) & p = q \\
+	\hline
+	1 & 1 & 1 & 1 & 1 & 1 \\
+	1 & 0 & 0 & 1 & 0 & 0 \\
+	0 & 1 & 1 & 0 & 0 & 0 \\
+	0 & 0 & 1 & 1 & 1 & 1 \\
+\end{array}
+\end{displaymath}
+
+Since $(\overline{p} \Rightarrow \overline{q}) \land p \Rightarrow q$ shares the same truth table as $p = q$, they are logically 
+
+equivalent. \\
+
+\textbf{Problem 1.3.} $\hspace{0.2cm}$ Let c,d be two single digit numbers, 0 $\leq$ c, d $\leq$ 9. We will
+
+create functions $f_1, f_2, f_3$... that are as follows:
+
+\hspace*{6cm}
+\begin{minipage}{.8\textwidth} 
+	\hfill
+
+	$f_1 (c,d) = cd$ \\
+	$f_2 (c,d) = cdcd$ \\
+	$f_3 (c,d) = cdcdcd$ \\
+	$f_4 (c,d) = cdcdcdcd$ \\
+	\hspace*{1cm} \vdots
+
+\end{minipage}
+
+For example, $f_3(4,7) = 474747$, as we are repeating the digits 4,7, 3 times. 
+
+Prove that $\forall 0 \leq c,d \leq 9, 37|f_9(c,d)$. In other words, prove that for any
+
+possible input into $f_9$, the output is divisible by 37. \\
+
+Let $k$ be some number in $37k = 0$
+
+$k = \frac{0}{37} = 0$, $k \in \mathbb{Z}$
+
+$ \therefore  37|0 $ \\
+
+Let $k$ be some number in $37k = 10101010101010101$
+
+$k = \frac{10101010101010101}{37} = 273000273000273$, $k \in \mathbb{Z}$
+
+$ \therefore  37|10101010101010101 $ \\
+
+Let $k$ be some number in $37k = 20202020202020202$
+
+$k = \frac{20202020202020202}{37} = 546000546000546$, $k \in \mathbb{Z}$
+
+$ \therefore  37|20202020202020202 $ \\
+
+Let $k$ be some number in $37k = 30303030303030303$
+
+$k = \frac{30303030303030303}{37} = 819000819000819$, $k \in \mathbb{Z}$
+
+$ \therefore  37|30303030303030303 $ \\
+
+Let $k$ be some number in $37k = 40404040404040404$
+
+$k = \frac{40404040404040404}{37} = 1092001092001092$, $k \in \mathbb{Z}$
+
+$ \therefore  37|40404040404040404 $ \\
+
+Let $k$ be some number in $37k = 50505050505050505$
+
+$k = \frac{50505050505050505}{37} = 1365001365001365$, $k \in \mathbb{Z}$
+
+$ \therefore  37|50505050505050505 $ \\
+
+Let $k$ be some number in $37k = 60606060606060606$
+
+$k = \frac{60606060606060606}{37} = 1638001638001638$, $k \in \mathbb{Z}$
+
+$ \therefore  37|60606060606060606 $ \\
+
+Let $k$ be some number in $37k = 70707070707070707$
+
+$k = \frac{70707070707070707}{37} = 1911001911001911$, $k \in \mathbb{Z}$
+
+$ \therefore  37|70707070707070707 $ \\
+
+Let $k$ be some number in $37k = 80808080808080808$
+
+$k = \frac{80808080808080808}{37} = 2184002184002184$, $k \in \mathbb{Z}$
+
+$ \therefore  37|80808080808080808 $ \\
+
+Let $k$ be some number in $37k = 90909090909090909$
+
+$k = \frac{90909090909090909}{37} = 2457002457002457$, $k \in \mathbb{Z}$
+
+$ \therefore  37|90909090909090909 $ \\
+
+Let $k$ be some number in $37k = 101010101010101010$
+
+$k = \frac{101010101010101010}{37} = 2730002730002730$, $k \in \mathbb{Z}$
+
+$ \therefore  37|101010101010101010 $ \\
+
+Let $k$ be some number in $37k = 111111111111111111$
+
+$k = \frac{111111111111111111}{37} = 3003003003003003$, $k \in \mathbb{Z}$
+
+$ \therefore  37|111111111111111111 $ \\
+
+Let $k$ be some number in $37k = 121212121212121212$
+
+$k = \frac{121212121212121212}{37} = 3276003276003276$, $k \in \mathbb{Z}$
+
+$ \therefore  37|121212121212121212 $ \\
+
+Let $k$ be some number in $37k = 131313131313131313$
+
+$k = \frac{131313131313131313}{37} = 3549003549003549$, $k \in \mathbb{Z}$
+
+$ \therefore  37|131313131313131313 $ \\
+
+Let $k$ be some number in $37k = 141414141414141414$
+
+$k = \frac{141414141414141414}{37} = 3822003822003822$, $k \in \mathbb{Z}$
+
+$ \therefore  37|141414141414141414 $ \\
+
+Let $k$ be some number in $37k = 151515151515151515$
+
+$k = \frac{151515151515151515}{37} = 4095004095004095$, $k \in \mathbb{Z}$
+
+$ \therefore  37|151515151515151515 $ \\
+
+Let $k$ be some number in $37k = 161616161616161616$
+
+$k = \frac{161616161616161616}{37} = 4368004368004368$, $k \in \mathbb{Z}$
+
+$ \therefore  37|161616161616161616 $ \\
+
+Let $k$ be some number in $37k = 171717171717171717$
+
+$k = \frac{171717171717171717}{37} = 4641004641004641$, $k \in \mathbb{Z}$
+
+$ \therefore  37|171717171717171717 $ \\
+
+Let $k$ be some number in $37k = 181818181818181818$
+
+$k = \frac{181818181818181818}{37} = 4914004914004914$, $k \in \mathbb{Z}$
+
+$ \therefore  37|181818181818181818 $ \\
+
+Let $k$ be some number in $37k = 191919191919191919$
+
+$k = \frac{191919191919191919}{37} = 5187005187005187$, $k \in \mathbb{Z}$
+
+$ \therefore  37|191919191919191919 $ \\
+
+Let $k$ be some number in $37k = 202020202020202020$
+
+$k = \frac{202020202020202020}{37} = 5460005460005460$, $k \in \mathbb{Z}$
+
+$ \therefore  37|202020202020202020 $ \\
+
+Let $k$ be some number in $37k = 212121212121212121$
+
+$k = \frac{212121212121212121}{37} = 5733005733005733$, $k \in \mathbb{Z}$
+
+$ \therefore  37|212121212121212121 $ \\
+
+Let $k$ be some number in $37k = 222222222222222222$
+
+$k = \frac{222222222222222222}{37} = 6006006006006006$, $k \in \mathbb{Z}$
+
+$ \therefore  37|222222222222222222 $ \\
+
+Let $k$ be some number in $37k = 232323232323232323$
+
+$k = \frac{232323232323232323}{37} = 6279006279006279$, $k \in \mathbb{Z}$
+
+$ \therefore  37|232323232323232323 $ \\
+
+Let $k$ be some number in $37k = 242424242424242424$
+
+$k = \frac{242424242424242424}{37} = 6552006552006552$, $k \in \mathbb{Z}$
+
+$ \therefore  37|242424242424242424 $ \\
+
+Let $k$ be some number in $37k = 252525252525252525$
+
+$k = \frac{252525252525252525}{37} = 6825006825006825$, $k \in \mathbb{Z}$
+
+$ \therefore  37|252525252525252525 $ \\
+
+Let $k$ be some number in $37k = 262626262626262626$
+
+$k = \frac{262626262626262626}{37} = 7098007098007098$, $k \in \mathbb{Z}$
+
+$ \therefore  37|262626262626262626 $ \\
+
+Let $k$ be some number in $37k = 272727272727272727$
+
+$k = \frac{272727272727272727}{37} = 7371007371007371$, $k \in \mathbb{Z}$
+
+$ \therefore  37|272727272727272727 $ \\
+
+Let $k$ be some number in $37k = 282828282828282828$
+
+$k = \frac{282828282828282828}{37} = 7644007644007644$, $k \in \mathbb{Z}$
+
+$ \therefore  37|282828282828282828 $ \\
+
+Let $k$ be some number in $37k = 292929292929292929$
+
+$k = \frac{292929292929292929}{37} = 7917007917007917$, $k \in \mathbb{Z}$
+
+$ \therefore  37|292929292929292929 $ \\
+
+Let $k$ be some number in $37k = 303030303030303030$
+
+$k = \frac{303030303030303030}{37} = 8190008190008190$, $k \in \mathbb{Z}$
+
+$ \therefore  37|303030303030303030 $ \\
+
+Let $k$ be some number in $37k = 313131313131313131$
+
+$k = \frac{313131313131313131}{37} = 8463008463008463$, $k \in \mathbb{Z}$
+
+$ \therefore  37|313131313131313131 $ \\
+
+Let $k$ be some number in $37k = 323232323232323232$
+
+$k = \frac{323232323232323232}{37} = 8736008736008736$, $k \in \mathbb{Z}$
+
+$ \therefore  37|323232323232323232 $ \\
+
+Let $k$ be some number in $37k = 333333333333333333$
+
+$k = \frac{333333333333333333}{37} = 9009009009009008$, $k \in \mathbb{Z}$
+
+$ \therefore  37|333333333333333333 $ \\
+
+Let $k$ be some number in $37k = 343434343434343434$
+
+$k = \frac{343434343434343434}{37} = 9282009282009282$, $k \in \mathbb{Z}$
+
+$ \therefore  37|343434343434343434 $ \\
+
+Let $k$ be some number in $37k = 353535353535353535$
+
+$k = \frac{353535353535353535}{37} = 9555009555009556$, $k \in \mathbb{Z}$
+
+$ \therefore  37|353535353535353535 $ \\
+
+Let $k$ be some number in $37k = 363636363636363636$
+
+$k = \frac{363636363636363636}{37} = 9828009828009828$, $k \in \mathbb{Z}$
+
+$ \therefore  37|363636363636363636 $ \\
+
+Let $k$ be some number in $37k = 373737373737373737$
+
+$k = \frac{373737373737373737}{37} = 10101010101010100$, $k \in \mathbb{Z}$
+
+$ \therefore  37|373737373737373737 $ \\
+
+Let $k$ be some number in $37k = 383838383838383838$
+
+$k = \frac{383838383838383838}{37} = 10374010374010374$, $k \in \mathbb{Z}$
+
+$ \therefore  37|383838383838383838 $ \\
+
+Let $k$ be some number in $37k = 393939393939393939$
+
+$k = \frac{393939393939393939}{37} = 10647010647010648$, $k \in \mathbb{Z}$
+
+$ \therefore  37|393939393939393939 $ \\
+
+Let $k$ be some number in $37k = 404040404040404040$
+
+$k = \frac{404040404040404040}{37} = 10920010920010920$, $k \in \mathbb{Z}$
+
+$ \therefore  37|404040404040404040 $ \\
+
+Let $k$ be some number in $37k = 414141414141414141$
+
+$k = \frac{414141414141414141}{37} = 11193011193011192$, $k \in \mathbb{Z}$
+
+$ \therefore  37|414141414141414141 $ \\
+
+Let $k$ be some number in $37k = 424242424242424242$
+
+$k = \frac{424242424242424242}{37} = 11466011466011466$, $k \in \mathbb{Z}$
+
+$ \therefore  37|424242424242424242 $ \\
+
+Let $k$ be some number in $37k = 434343434343434343$
+
+$k = \frac{434343434343434343}{37} = 11739011739011740$, $k \in \mathbb{Z}$
+
+$ \therefore  37|434343434343434343 $ \\
+
+Let $k$ be some number in $37k = 444444444444444444$
+
+$k = \frac{444444444444444444}{37} = 12012012012012012$, $k \in \mathbb{Z}$
+
+$ \therefore  37|444444444444444444 $ \\
+
+Let $k$ be some number in $37k = 454545454545454545$
+
+$k = \frac{454545454545454545}{37} = 12285012285012284$, $k \in \mathbb{Z}$
+
+$ \therefore  37|454545454545454545 $ \\
+
+Let $k$ be some number in $37k = 464646464646464646$
+
+$k = \frac{464646464646464646}{37} = 12558012558012558$, $k \in \mathbb{Z}$
+
+$ \therefore  37|464646464646464646 $ \\
+
+Let $k$ be some number in $37k = 474747474747474747$
+
+$k = \frac{474747474747474747}{37} = 12831012831012832$, $k \in \mathbb{Z}$
+
+$ \therefore  37|474747474747474747 $ \\
+
+Let $k$ be some number in $37k = 484848484848484848$
+
+$k = \frac{484848484848484848}{37} = 13104013104013104$, $k \in \mathbb{Z}$
+
+$ \therefore  37|484848484848484848 $ \\
+
+Let $k$ be some number in $37k = 494949494949494949$
+
+$k = \frac{494949494949494949}{37} = 13377013377013376$, $k \in \mathbb{Z}$
+
+$ \therefore  37|494949494949494949 $ \\
+
+Let $k$ be some number in $37k = 505050505050505050$
+
+$k = \frac{505050505050505050}{37} = 13650013650013650$, $k \in \mathbb{Z}$
+
+$ \therefore  37|505050505050505050 $ \\
+
+Let $k$ be some number in $37k = 515151515151515151$
+
+$k = \frac{515151515151515151}{37} = 13923013923013924$, $k \in \mathbb{Z}$
+
+$ \therefore  37|515151515151515151 $ \\
+
+Let $k$ be some number in $37k = 525252525252525252$
+
+$k = \frac{525252525252525252}{37} = 14196014196014196$, $k \in \mathbb{Z}$
+
+$ \therefore  37|525252525252525252 $ \\
+
+Let $k$ be some number in $37k = 535353535353535353$
+
+$k = \frac{535353535353535353}{37} = 14469014469014468$, $k \in \mathbb{Z}$
+
+$ \therefore  37|535353535353535353 $ \\
+
+Let $k$ be some number in $37k = 545454545454545454$
+
+$k = \frac{545454545454545454}{37} = 14742014742014742$, $k \in \mathbb{Z}$
+
+$ \therefore  37|545454545454545454 $ \\
+
+Let $k$ be some number in $37k = 555555555555555555$
+
+$k = \frac{555555555555555555}{37} = 15015015015015016$, $k \in \mathbb{Z}$
+
+$ \therefore  37|555555555555555555 $ \\
+
+Let $k$ be some number in $37k = 565656565656565656$
+
+$k = \frac{565656565656565656}{37} = 15288015288015288$, $k \in \mathbb{Z}$
+
+$ \therefore  37|565656565656565656 $ \\
+
+Let $k$ be some number in $37k = 575757575757575757$
+
+$k = \frac{575757575757575757}{37} = 15561015561015560$, $k \in \mathbb{Z}$
+
+$ \therefore  37|575757575757575757 $ \\
+
+Let $k$ be some number in $37k = 585858585858585858$
+
+$k = \frac{585858585858585858}{37} = 15834015834015834$, $k \in \mathbb{Z}$
+
+$ \therefore  37|585858585858585858 $ \\
+
+Let $k$ be some number in $37k = 595959595959595959$
+
+$k = \frac{595959595959595959}{37} = 16107016107016108$, $k \in \mathbb{Z}$
+
+$ \therefore  37|595959595959595959 $ \\
+
+Let $k$ be some number in $37k = 606060606060606060$
+
+$k = \frac{606060606060606060}{37} = 16380016380016380$, $k \in \mathbb{Z}$
+
+$ \therefore  37|606060606060606060 $ \\
+
+Let $k$ be some number in $37k = 616161616161616161$
+
+$k = \frac{616161616161616161}{37} = 16653016653016652$, $k \in \mathbb{Z}$
+
+$ \therefore  37|616161616161616161 $ \\
+
+Let $k$ be some number in $37k = 626262626262626262$
+
+$k = \frac{626262626262626262}{37} = 16926016926016926$, $k \in \mathbb{Z}$
+
+$ \therefore  37|626262626262626262 $ \\
+
+Let $k$ be some number in $37k = 636363636363636363$
+
+$k = \frac{636363636363636363}{37} = 17199017199017200$, $k \in \mathbb{Z}$
+
+$ \therefore  37|636363636363636363 $ \\
+
+Let $k$ be some number in $37k = 646464646464646464$
+
+$k = \frac{646464646464646464}{37} = 17472017472017472$, $k \in \mathbb{Z}$
+
+$ \therefore  37|646464646464646464 $ \\
+
+Let $k$ be some number in $37k = 656565656565656565$
+
+$k = \frac{656565656565656565}{37} = 17745017745017744$, $k \in \mathbb{Z}$
+
+$ \therefore  37|656565656565656565 $ \\
+
+Let $k$ be some number in $37k = 666666666666666666$
+
+$k = \frac{666666666666666666}{37} = 18018018018018016$, $k \in \mathbb{Z}$
+
+$ \therefore  37|666666666666666666 $ \\
+
+Let $k$ be some number in $37k = 676767676767676767$
+
+$k = \frac{676767676767676767}{37} = 18291018291018292$, $k \in \mathbb{Z}$
+
+$ \therefore  37|676767676767676767 $ \\
+
+Let $k$ be some number in $37k = 686868686868686868$
+
+$k = \frac{686868686868686868}{37} = 18564018564018564$, $k \in \mathbb{Z}$
+
+$ \therefore  37|686868686868686868 $ \\
+
+Let $k$ be some number in $37k = 696969696969696969$
+
+$k = \frac{696969696969696969}{37} = 18837018837018836$, $k \in \mathbb{Z}$
+
+$ \therefore  37|696969696969696969 $ \\
+
+Let $k$ be some number in $37k = 707070707070707070$
+
+$k = \frac{707070707070707070}{37} = 19110019110019112$, $k \in \mathbb{Z}$
+
+$ \therefore  37|707070707070707070 $ \\
+
+Let $k$ be some number in $37k = 717171717171717171$
+
+$k = \frac{717171717171717171}{37} = 19383019383019384$, $k \in \mathbb{Z}$
+
+$ \therefore  37|717171717171717171 $ \\
+
+Let $k$ be some number in $37k = 727272727272727272$
+
+$k = \frac{727272727272727272}{37} = 19656019656019656$, $k \in \mathbb{Z}$
+
+$ \therefore  37|727272727272727272 $ \\
+
+Let $k$ be some number in $37k = 737373737373737373$
+
+$k = \frac{737373737373737373}{37} = 19929019929019928$, $k \in \mathbb{Z}$
+
+$ \therefore  37|737373737373737373 $ \\
+
+Let $k$ be some number in $37k = 747474747474747474$
+
+$k = \frac{747474747474747474}{37} = 20202020202020200$, $k \in \mathbb{Z}$
+
+$ \therefore  37|747474747474747474 $ \\
+
+Let $k$ be some number in $37k = 757575757575757575$
+
+$k = \frac{757575757575757575}{37} = 20475020475020476$, $k \in \mathbb{Z}$
+
+$ \therefore  37|757575757575757575 $ \\
+
+Let $k$ be some number in $37k = 767676767676767676$
+
+$k = \frac{767676767676767676}{37} = 20748020748020748$, $k \in \mathbb{Z}$
+
+$ \therefore  37|767676767676767676 $ \\
+
+Let $k$ be some number in $37k = 777777777777777777$
+
+$k = \frac{777777777777777777}{37} = 21021021021021020$, $k \in \mathbb{Z}$
+
+$ \therefore  37|777777777777777777 $ \\
+
+Let $k$ be some number in $37k = 787878787878787878$
+
+$k = \frac{787878787878787878}{37} = 21294021294021296$, $k \in \mathbb{Z}$
+
+$ \therefore  37|787878787878787878 $ \\
+
+Let $k$ be some number in $37k = 797979797979797979$
+
+$k = \frac{797979797979797979}{37} = 21567021567021568$, $k \in \mathbb{Z}$
+
+$ \therefore  37|797979797979797979 $ \\
+
+Let $k$ be some number in $37k = 808080808080808080$
+
+$k = \frac{808080808080808080}{37} = 21840021840021840$, $k \in \mathbb{Z}$
+
+$ \therefore  37|808080808080808080 $ \\
+
+Let $k$ be some number in $37k = 818181818181818181$
+
+$k = \frac{818181818181818181}{37} = 22113022113022112$, $k \in \mathbb{Z}$
+
+$ \therefore  37|818181818181818181 $ \\
+
+Let $k$ be some number in $37k = 828282828282828282$
+
+$k = \frac{828282828282828282}{37} = 22386022386022384$, $k \in \mathbb{Z}$
+
+$ \therefore  37|828282828282828282 $ \\
+
+Let $k$ be some number in $37k = 838383838383838383$
+
+$k = \frac{838383838383838383}{37} = 22659022659022660$, $k \in \mathbb{Z}$
+
+$ \therefore  37|838383838383838383 $ \\
+
+Let $k$ be some number in $37k = 848484848484848484$
+
+$k = \frac{848484848484848484}{37} = 22932022932022932$, $k \in \mathbb{Z}$
+
+$ \therefore  37|848484848484848484 $ \\
+
+Let $k$ be some number in $37k = 858585858585858585$
+
+$k = \frac{858585858585858585}{37} = 23205023205023204$, $k \in \mathbb{Z}$
+
+$ \therefore  37|858585858585858585 $ \\
+
+Let $k$ be some number in $37k = 868686868686868686$
+
+$k = \frac{868686868686868686}{37} = 23478023478023480$, $k \in \mathbb{Z}$
+
+$ \therefore  37|868686868686868686 $ \\
+
+Let $k$ be some number in $37k = 878787878787878787$
+
+$k = \frac{878787878787878787}{37} = 23751023751023752$, $k \in \mathbb{Z}$
+
+$ \therefore  37|878787878787878787 $ \\
+
+Let $k$ be some number in $37k = 888888888888888888$
+
+$k = \frac{888888888888888888}{37} = 24024024024024024$, $k \in \mathbb{Z}$
+
+$ \therefore  37|888888888888888888 $ \\
+
+Let $k$ be some number in $37k = 898989898989898989$
+
+$k = \frac{898989898989898989}{37} = 24297024297024296$, $k \in \mathbb{Z}$
+
+$ \therefore  37|898989898989898989 $ \\
+
+Let $k$ be some number in $37k = 909090909090909090$
+
+$k = \frac{909090909090909090}{37} = 24570024570024568$, $k \in \mathbb{Z}$
+
+$ \therefore  37|909090909090909090 $ \\
+
+Let $k$ be some number in $37k = 919191919191919191$
+
+$k = \frac{919191919191919191}{37} = 24843024843024844$, $k \in \mathbb{Z}$
+
+$ \therefore  37|919191919191919191 $ \\
+
+Let $k$ be some number in $37k = 929292929292929292$
+
+$k = \frac{929292929292929292}{37} = 25116025116025116$, $k \in \mathbb{Z}$
+
+$ \therefore  37|929292929292929292 $ \\
+
+Let $k$ be some number in $37k = 939393939393939393$
+
+$k = \frac{939393939393939393}{37} = 25389025389025388$, $k \in \mathbb{Z}$
+
+$ \therefore  37|939393939393939393 $ \\
+
+Let $k$ be some number in $37k = 949494949494949494$
+
+$k = \frac{949494949494949494}{37} = 25662025662025664$, $k \in \mathbb{Z}$
+
+$ \therefore  37|949494949494949494 $ \\
+
+Let $k$ be some number in $37k = 959595959595959595$
+
+$k = \frac{959595959595959595}{37} = 25935025935025936$, $k \in \mathbb{Z}$
+
+$ \therefore  37|959595959595959595 $ \\
+
+Let $k$ be some number in $37k = 969696969696969696$
+
+$k = \frac{969696969696969696}{37} = 26208026208026208$, $k \in \mathbb{Z}$
+
+$ \therefore  37|969696969696969696 $ \\
+
+Let $k$ be some number in $37k = 979797979797979797$
+
+$k = \frac{979797979797979797}{37} = 26481026481026480$, $k \in \mathbb{Z}$
+
+$ \therefore  37|979797979797979797 $ \\
+
+Let $k$ be some number in $37k = 989898989898989898$
+
+$k = \frac{989898989898989898}{37} = 26754026754026752$, $k \in \mathbb{Z}$
+
+$ \therefore  37|989898989898989898 $ \\
+
+Let $k$ be some number in $37k = 999999999999999999$
+
+$k = \frac{999999999999999999}{37} = 27027027027027028$, $k \in \mathbb{Z}$
+
+$ \therefore  37|999999999999999999 $ \\
+
+$ \therefore \forall 0 \leq c,d \leq 9$, $37|f_9(c,d)$. $\blacksquare$ \\
+
+References:
+
+\href{https://math.stackexchange.com/questions/304217/is-forall-x-exists-y-qx-y-the-same-as-exists-y-forall-x-qx-y}{https://math.stackexchange.com}
+
+\href{https://www.math.toronto.edu/preparing-for-calculus/3_logic/we_3_negation.html}{Negation}
+
+\href{https://www.csm.ornl.gov/~sheldon/ds/sec1.1.html}{Logical Equivalence}
+\end{document}
+
