@@ -10,8 +10,6 @@ for i in range(m,n):
         output = ""
         foo = str((i,j)*9)
         x = int(foo.replace(",","").replace(" ", "").replace(")", "").replace("(", ""))
-        if x == 0:
-            continue
         y = 37
         k = x / y
         # Let $k$ be some number in $37k = 999999999999999999$

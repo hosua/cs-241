@@ -88,6 +88,12 @@ possible input into $f_9$, the output is divisible by 37. \\
 
 Proof by exhaustion: \\
 
+Let $k$ be some number in $37k = 0$
+
+$k = \frac{0}{37} = 0$, $k \in \mathbb{Z}$
+
+$ \therefore  37|0 $ \\
+
 Let $k$ be some number in $37k = 10101010101010101$
 
 $k = \frac{10101010101010101}{37} = 273000273000273$, $k \in \mathbb{Z}$
@@ -684,6 +690,9 @@ $ \therefore  37|999999999999999999 $ \\
 
 $ \therefore \forall 0 \leq c,d \leq 9$, $37|f_9(c,d)$. $\blacksquare$ \\
 
+
+
+
 \textbf{Problem 1.4.} $\hspace{0.2cm}$ To ride the PATH train from Newark to New York, you 
 
 must swipe a metro card that costs \$2.75 per ride. Suppose my friend is 
@@ -700,19 +709,21 @@ for my next ride, provide and prove all values of M for which the metro card
 
 amount will eventually reach 0. \\
 
-Theorem: The equation $ax+by=c$ has a solution iff the gcd of a and b 
+Theorem: The equation $ax+by=c$ has a solution iff $gcd(a,b)|c$.
 
-divides c \hspace{0.2cm} $(gcd(a,b)|c)$.
+Let $a = 2.75$, \hspace{0.2cm} $b = 20$
 
-Let $m = 0.25k$, $\forall k \in \mathbb{Z}$ \hspace{0.2cm} $gcd(2.75, 20) = 0.25 = d$
+Let $M = 0.25k$, $\forall k \in \mathbb{Z}$ \hspace{0.2cm} $gcd(2.75, 20) = 0.25 = d$
 
-Let $a = 2.75$ \hspace{0.2cm} Let $b = 20$ \hspace{0.2cm} Let $c = m$
+Let $c = M$
 
 Proof: Suppose $gcd(a,b) = d \Rightarrow a = k_1 \cdot d, \hspace{0.2cm} b = k_2 \cdot d, \hspace{0.2cm} k \in \mathbb{Z}$ 
 
-$\hspace{2cm} (k_1 \cdot d \cdot x) - (k_2 \cdot d \cdot y) = c$
+$\hspace{2cm} k_1 d x - k_2 d y = c$
 
-$\hspace{2cm} (k_1 \cdot x) - (k_2 \cdot y) = \frac{c}{d}$ \hspace{1cm} $(\forall x$ and $\forall y \in \mathbb{Z})$ $\blacksquare$ \\
+$\hspace{2cm} k_1 x - k_2 y = \frac{c}{d}$ \hspace{1cm} $(\forall x$ and $\forall y \in \mathbb{Z})$ 
+
+$ \therefore d|c \hspace{0.2cm} \blacksquare$ \\
 
 \textbf{Part 2}: Suppose instead of paying \$20.00, every time I refill using some
 
@@ -722,13 +733,11 @@ divisible by 5 or 11, that the metro card will eventually reach 0 for any value
 
 of M. \\
 
-Theorem: The equation $ax+by=c$ has a solution iff the gcd of $a$ and $b$ 
-
-divides $c$ $(gcd(a,b)|c)$.
+Theorem: The equation $ax+by=c$ has a solution iff $gcd(a,b)|c$.
 
 $k \in \mathbb{Z}$
 
-Let $a=5k$, $b=11k$, $c=m$
+Let $a=5k$, $b=11k$, $c=M$
 
 Let $d_1 = 5$, $d_2 = 11$
 
@@ -736,15 +745,19 @@ Since $gcd(2.75, a) = d_1$ and $gcd(2.75, b) = d_2$ where both $(d_1$ and $d_2) 
 
 Let $R = \forall r$ that is $(\overline{a} \land \overline{b})$.
 
-Proof: Suppose $gcd(2.75, R) = d), \hspace{0.5cm} d=1$
+Proof: Suppose $gcd(2.75, R) = d, \hspace{0.5cm} d=1$
 
-$\hspace{0.5cm} R = k_1 \cdot d \hspace{0.5cm} 2.75 = k_2 \cdot d \hspace{0.5cm} (k \in \mathbb{Z})$
+$\hspace{0.5cm} R = k_1 d, \hspace{0.5cm} 2.75 = k_2 d, \hspace{0.5cm} k_1, k_2 \in \mathbb{Z}$
 
-$\hspace{0.5cm} k_1 \cdot d \cdot x - k_2 \cdot d \cdot y = c \hspace{1cm} \forall x, \forall y \in \mathbb{Z}$
+$\hspace{0.5cm} k_1 d x - k_2 d y = c \hspace{1cm} \forall x, \forall y \in \mathbb{Z}$
 
-$\hspace{0.5cm} k_1 \cdot x - k_2 \cdot y = \frac{c}{d}$
+$\hspace{0.5cm} k_1 x - k_2 y = \frac{c}{d}$
 
-$\therefore d|c$ $\blacksquare$
+$\therefore d|c$ $\blacksquare$ \\
+
+
+
+
 
 References:
 
