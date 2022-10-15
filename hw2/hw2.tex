@@ -1,0 +1,207 @@
+\documentclass{article}
+\title{HW 2}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref} % for hyperlinks
+\usepackage{amssymb}
+\usepackage{authblk}
+\usepackage{minted}   % for code linting
+\usepackage{amsmath}   % big brackets
+\author{Joshua Ortiga \\
+		\and
+		Xin Li \\
+		\and
+		Jonathan Le}
+\begin{document}
+
+\maketitle
+\textbf{Problem 2.1.} Define the following sets $S_n \subset \mathbb{R}$
+
+\begin{center}
+	$S_n = \{x|x \in \mathbb{R}, 0 < x < \frac{1}{n}\}$.
+\end{center}
+
+\hspace{1cm} Define the following set:
+
+\begin{center}
+	$S = \displaystyle\bigcap_{n=1}^{\infty} S_n = S_1 \cap S_2 \cap S_3 \cap ....$
+\end{center}
+
+\hspace{1cm} Prove that $S = $ \o.
+
+\vspace{0.5cm}
+
+\textbf{Problem 2.2.} Let $F_n$ be the $n\textsuperscript{th}$ Fibonacci number. Prove that $\forall n \in \mathbb{N}$, 
+
+$gcd(F_n,F_n+1) = 1$.
+
+\vspace{0.3cm}
+
+In the Fibonacci sequence: $F_n+1 = F_n + F_n-1$.
+
+\vspace{0.2cm}
+
+$\therefore gcd(F_n + F_n-1, F_n) = gcd(F_n+1, F_n)$.
+
+\vspace{0.2cm}
+
+Base case: $gcd(F_1, F_2) = 1$, \hspace{0.2cm} $(F_1 = 1, F_2 = 1)$
+
+\vspace{0.2cm}
+
+Assume that: $(F_n-1, F_n) = 1$, \hspace{0.2cm} where $n \geq 2$.
+
+\vspace{0.2cm}
+
+Since: $F_n+1 = F_n + F_n-1$, and $gcd(F_n + F_n-1, F_n) = gcd(F_n, F_n+1)$
+
+\vspace{0.2cm}
+
+$\therefore gcd(F_n, F_n+1) = 1 \hspace{0.5cm} \blacksquare$
+
+\vspace{0.5cm}
+
+\textbf{Problem 2.3.} $\forall n \in \mathbb{N}$, prove that
+
+\begin{center}
+	$\displaystyle\sum_{k=1}^{n} k^3 = \left(\displaystyle\sum_{k=1}^{n} k\right)^2$.
+\end{center}
+
+Assume that: $\displaystyle\sum_{k=1}^{n} k = \frac{n(n+1)}{2}$.
+
+Then: 	$\left(\displaystyle\sum_{k=1}^{n} k \right)^2 =  \left(\frac{n(n+1)}{2}\right)^2 = \frac{n^2(n+1)^2}{4}$.
+
+Now then, assume that: $\displaystyle\sum_{k=1}^{n} k^3 = \frac{n^2(n+1)^2}{4}$.
+
+Inductive step: Assume $\left(\frac{n(n+1)}{2}\right)^2$ to be true $\forall n$ up until $(n+1)$. 
+
+Use $P(n) \Rightarrow P(n+1)$.
+
+\vspace{0.5cm}
+
+$P(n+1) = \left(\frac{n(n+1)}{2} + (n+1) \right)^2$
+
+\vspace{0.2cm}
+\hspace{2cm} $\downarrow$
+\vspace{0.2cm}
+
+
+$\left(\frac{n^2+n}{2} + (n+1)\right)^2 = \left(\frac{n^2+3n+2}{2}\right)^2$
+
+\vspace{0.5cm}
+
+$= \frac{(n^2+3n+2)(n^2+3n+2)}{4} = \frac{n^4+3n^3+2n^2+3n^3+9n^2+6n+2n^2+6n+4}{4}$
+
+\vspace{0.5cm}
+
+$= \frac{n^4+6n^3+13n^2+12n+4}{4} = \frac{(n+1)(n+1)(n+2)(n+2)}{4} = \frac{(n+1)^2(n+2)^2}{4}$
+
+\vspace{1.2cm}
+
+$P(n+1)$ for $\displaystyle\sum_{k=1}^{n} k^3 = \frac{n^2(n+1)^2}{4} + (n+1)^3$
+
+$= \frac{n^2(n^2+2n+1)}{4} + \frac{4(n+1)^3}{4} = \frac{n^4+2n^3+n^2}{4} + \frac{4(n^3+3n^2+3n+1)}{4}$
+
+\vspace{0.3cm}
+
+$= \frac{n^4+2n^3+n^2+4n^3+12n^2+12n+4}{4} = \frac{n^4+6n^3+13n^2+12n+4}{4}$
+
+\vspace{0.3cm}
+
+$= \frac{(n+1)(n+1)(n+2)(n+2)}{4} = \frac{(n+1)^2(n+2)^2}{4}$
+
+\vspace{0.3cm}
+
+$\therefore $ Since $ \left(\frac{n(n+1)}{2} + (n+1) \right)^2 = \frac{n^2(n+1)^2}{4} + (n+1)^3 $ 
+
+$\displaystyle\sum_{k=1}^{n} k^3 = \left( \displaystyle\sum_{k=1}^{n} k \right)^2 \blacksquare $
+
+\vspace{3.2cm}
+
+\textbf{Problem 2.4.} Prove that for a list of any size, the function below will 
+
+return the largest item from the list.
+
+\vspace{0.5cm}
+
+\hrule
+
+\begin{minted}{python}
+    if len(lst) == 0:
+        return None
+    elif len(lst) == 1:
+        return lst[0]
+    # lst[~0] represents the last item in the array
+    # equivilent to lst[-1]
+    maximum = maxItem(lst[:~0])
+    if lst[~0] < maximum:
+        return maximum
+    else:
+        return lst[~0]
+\end{minted}
+
+\hrule
+
+\vspace{0.5cm}
+
+Let the list $foo$ = [4, 3, 2, 5, 1, 6, 2].
+
+\vspace{0.5cm}
+
+Following the code given: $foo$ is broken up into pairs comparing each 
+
+value with the next element, starting from index 0, and returning the largest 
+
+value in each pair through every recursive iteration.
+
+\vspace{0.5cm}
+
+\underline{Function calls}
+
+1. $maximum = maxItem([4,3,2,5,1,6])$
+
+2. $maximum = maxItem([4,3,2,5,1])$
+
+3. $maximum = maxItem([4,3,2,5])$
+
+4. $maximum = maxItem([4,3,2])$
+
+5. $maximum = maxItem([4,3])$
+
+6. $maximum = maxItem([4])$ $\leftarrow$ Base case reached, len($foo$) = 1
+
+\vspace{0.5cm}
+
+\underline{Returning}
+
+
+1. $maximum = 4$
+
+2. $maximum = 4$ $(3 < 4)$ $\leftarrow$ pair
+
+3. $maximum = 4$ $(2 < 4)$ $\leftarrow$ pair
+
+4. $maximum = 5$ $(5 \not < 4)$ $\leftarrow$ pair
+
+5. $maximum = 5$ $(1 < 5)$ $\leftarrow$ pair
+
+6. $maximum = 6$ $(6 \not < 5)$  $\leftarrow$ pair
+
+\vspace{0.5cm}
+
+6 is the largest item in $foo$.
+
+\vspace{0.2cm}
+
+$\therefore$ Since $foo[$\textasciitilde{}$0] < maximum$ will always check for the larger value in each 
+
+pair, and return it if $foo[$\textasciitilde{}$0]$ is not more than the current largest value in 
+
+the list (or else, $foo[$\textasciitilde{}$0]$ would be returned as the new current maximum 
+
+value), the function will always return the largest item from the list of any 
+
+size. \hspace{0.5cm} $\blacksquare$
+
+
+\end{document}
+
