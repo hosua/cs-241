@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+    \PYG{k}{if} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{lst}\PYG{p}{)} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{:}
+        \PYG{k}{return} \PYG{k+kc}{None}
+    \PYG{k}{elif} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{lst}\PYG{p}{)} \PYG{o}{==} \PYG{l+m+mi}{1}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n}{lst}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}
+    \PYG{c+c1}{\PYGZsh{} lst[\PYGZti{}0] represents the last item in the array}
+    \PYG{c+c1}{\PYGZsh{} equivilent to lst[\PYGZhy{}1]}
+    \PYG{n}{maximum} \PYG{o}{=} \PYG{n}{maxItem}\PYG{p}{(}\PYG{n}{lst}\PYG{p}{[:}\PYG{o}{\PYGZti{}}\PYG{l+m+mi}{0}\PYG{p}{])}
+    \PYG{k}{if} \PYG{n}{lst}\PYG{p}{[}\PYG{o}{\PYGZti{}}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{\PYGZlt{}} \PYG{n}{maximum}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n}{maximum}
+    \PYG{k}{else}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n}{lst}\PYG{p}{[}\PYG{o}{\PYGZti{}}\PYG{l+m+mi}{0}\PYG{p}{]}
+\end{Verbatim}

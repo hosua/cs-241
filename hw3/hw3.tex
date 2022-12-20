@@ -1,0 +1,168 @@
+\documentclass{article}
+\title{HW 3}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref} % for hyperlinks
+\usepackage{amssymb}
+\usepackage{authblk}
+\usepackage{minted}   % for code linting
+\usepackage{amsmath}   % big brackets
+\author{Joshua Ortiga \\
+		\and
+		Xin Li \\
+		\and
+		Jonathan Le}
+\begin{document}
+
+\maketitle
+\textbf{Problem 3.1.} Let $f(x)=tan(x)$, and define $g(x)$ as the following: 
+
+\begin{center}
+$
+	\hfill
+	\begin{cases}
+	 0 \;\;\;\; x \leq 0 \\ 
+	 1 \;\;\;\; x > 0
+	\end{cases}
+	\hfill (1)
+$
+\end{center}
+
+on which domain A and codomain B $g(x)$ an inverse function for $f(x)$?
+
+\vspace{0.5cm}
+
+Proof by contradiction
+
+\vspace{0.25cm}
+
+Let $f(x) = tan(x)$ and $x = 45$.
+
+\vspace{0.25cm}
+
+Assume $g(x) = f(x)^{-1}$.
+
+\vspace{0.25cm}
+
+Let $y = f(x) = f(45) = 1$.
+
+\vspace{0.25cm}
+
+$g(y) = g(1) = 1$.
+
+\vspace{0.25cm}
+
+Since $g(y) \neq f(x)$, $g(x)$ is not $f(x)^{-1}$ $\blacksquare$
+
+\vspace{0.5cm}
+
+\textbf{Problem 3.2.} Take a clock and replace all the numbers on the face with 
+
+numbers $1 \leq n \leq 19$, such that if you sum all the numbers up you get
+
+30. For example, a valid clock face would be [4, 3, 6, 3, 1, 1, 1, 2, 1, 3, 3, 
+
+2] starting with the first number in the 12 position, and going around 
+
+clockwise from there. Prove that for any valid sequence on the clock, 
+
+that there must exist a consecutive sequence that adds to exactly 10.
+
+\vspace{0.25cm}
+
+Assume that there is a wrapping list of integers from 1-19 (inclusive) that
+
+add up to 30, without any sequence that add up to 10. Since the lowest 
+
+sequence that doesn't add up to 10 is = $[1,3,4,1,3,4,1,3,4,1,3,4]$ and the 
+
+sum of the following list of integers is 32 which greater than 30. 
+
+Since lowering any integer in this list results in at least 1 sequence that adds 
+
+to 10, there is no list of integers that can add up to 30 that won't result in 
+
+sequence of 10. $\blacksquare$
+
+\vspace{0.5cm}
+
+\textbf{Problem 3.3.} Let $a, b, \in \mathbb{Z}_+$ and $gcd(a,b) = 1$. Prove that the decimal 
+
+expansion of $\frac{a}{b}$ must either terminate or will loop infinitely.
+
+\vspace{0.25cm}
+
+Assume there are 2 numbers $a, b$ (positive integers $gcd(a,b) = 1$) $s.t.$
+
+$a$ and $b$ do not terminate or loop infinitely. $\pi$ does not terminate or 
+
+loop infinitely, and there are no 2 numbers that divide into $\pi$.
+
+$\therefore$ there are no 2 numbers that will not terminate and not loop infinitely 
+
+because there are no 2 numbers that divide into $\pi$. $\blacksquare$
+
+
+\vspace{0.5cm}
+
+\textbf{Problem 3.4.} Let $\mathbb{Z}/n$ be the quotient set of $\mathbb{Z}$ under the relation 
+
+$x \equiv y(mod\;n)$ (a.k.a a complete system of incongruent residues). 
+
+Suppose that:
+
+\begin{center}
+	\hfill $\mathbb{Z}/n = \{[x_1],[x_2],...,[x_n]\}.$ \hfill (2)
+\end{center}
+
+If $gcd(k,n) = 1$, prove that:
+
+\begin{center}
+	\hfill $\mathbb{Z}/n = \{[x_1],[x_2],...,[x_n]\} = \{[kx_1],[kx_2],...,[kx_n]\}.$ \hfill (3)
+\end{center}
+
+\vspace{0.25cm}
+
+False. 
+
+\vspace{0.25cm}
+
+Proof by contradiction
+
+\vspace{0.25cm}
+
+Since $\mathbb{Z}/n$ is a complete system of incongruent residues, the remainders in 
+
+the set has to all be different from each other.
+
+\vspace{0.25cm}
+
+Let $n = 4,\;\;\;\;z = ...8,9,10,11...$
+
+\vspace{0.25cm} 
+
+\begin{center}
+	$\mathbb{Z}/n = \{0,1,2,3\}$
+\end{center}
+
+Let $k = 3$.
+
+\vspace{0.25cm} 
+
+\begin{center}
+
+	$gcd(k,n) = gcd(3,4) = 1$
+	
+	\vspace{0.25cm} 
+
+	$\{k(0),k(1),k(2),k(3)\} = \{0,3,6,9\} $
+
+	\vspace{0.25cm} 
+
+	$\{0,1,2,3\} \neq \{0,3,6,9\}$
+
+\end{center}
+
+There is a contradiction, $\therefore$ it is false. $\blacksquare$
+
+
+\end{document}

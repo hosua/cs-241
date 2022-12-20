@@ -38,15 +38,15 @@ $S_n = \{ x | x \in \mathbb{R}, 0 < x < \frac{1}{n}\}$ where $\frac{1}{n}$ is th
 
 \vspace{0.2cm}
 
-Since $n$ goes on $\forall \mathbb{R}$ from 0 to $\infty$, $\frac{1}{n}$ will approach 0 but never = 0.
+Since $n$ consists of all $\mathbb{R}$ from 0 to $\infty$, $\frac{1}{n}$ will approach 0 but never = 0.
 
 \vspace{0.2cm}
 
 Consider a value $j$ where $j=n+1$ and $S_j = \{x|x \in \mathbb{R}, 0 < x < \frac{1}{j} \}$.
 
-Since $\frac{1}{n} > \frac{1}{j}$, any value in $S_j$ would be within $S_n$ which would be replicated
+Since $\frac{1}{n} > \frac{1}{j}$, any value in $S_j$ would exist within $S_n$ $\forall n$ since $n$ approaches 
 
-$\forall n$ since $n$ approaches $\infty$.
+$\infty$.
 
 $\therefore S \not = $ \o.
 
@@ -88,15 +88,17 @@ $\therefore gcd(F_n, F_n+1) = 1 \hspace{0.5cm} \blacksquare$
 	$\displaystyle\sum_{k=1}^{n} k^3 = \left(\displaystyle\sum_{k=1}^{n} k\right)^2$.
 \end{center}
 
-Assume that: $\displaystyle\sum_{k=1}^{n} k = \frac{n(n+1)}{2}$.
+Assume: $\displaystyle\sum_{k=1}^{n} k = \frac{n(n+1)}{2}$.
 
 Then: 	$\left(\displaystyle\sum_{k=1}^{n} k \right)^2 =  \left(\frac{n(n+1)}{2}\right)^2 = \frac{n^2(n+1)^2}{4}$.
 
-Now then, assume that: $\displaystyle\sum_{k=1}^{n} k^3 = \frac{n^2(n+1)^2}{4}$.
+Now assume: $\displaystyle\sum_{k=1}^{n} k^3 = \frac{n^2(n+1)^2}{4}$.
 
-Inductive step: Assume $\left(\frac{n(n+1)}{2}\right)^2$ to be true $\forall n$ up until $(n+1)$. 
+Inductive step: Assume $\left(\frac{n(n+1)}{2}\right)^2$ to be true $\forall n$ to $(n+1)$. 
 
-Use $P(n) \Rightarrow P(n+1)$.
+\vspace{0.2cm}
+
+Also consider that $P(n) \Rightarrow P(n+1)$.
 
 \vspace{0.5cm}
 
@@ -169,7 +171,7 @@ Let the list $foo$ = [4, 3, 2, 5, 1, 6, 2].
 
 \vspace{0.5cm}
 
-Following the code given: $foo$ is broken up into pairs comparing each 
+Following the given code, $foo$ is broken up into pairs via comparing each 
 
 value with the next element, starting from index 0, and returning the largest 
 
@@ -210,19 +212,21 @@ value in each pair through every recursive iteration.
 
 \vspace{0.5cm}
 
-6 is the largest item in $foo$.
+We end up with 6, the largest item in $foo$.
 
 \vspace{0.2cm}
 
 $\therefore$ Since $foo[$\textasciitilde{}$0] < maximum$ will always check for the larger value in each 
 
-pair, and return it if $foo[$\textasciitilde{}$0]$ is not more than the current largest value in 
+pair, and return the largest of the pair per each recursive iteration. Since 
 
-the list (or else, $foo[$\textasciitilde{}$0]$ would be returned as the new current maximum 
+we are guaranteed to always reach our base case, and that the only edge case 
 
-value), the function will always return the largest item from the list of any 
+where $foo$ contains no elements is also considered, $maxItem()$ must always
 
-size. \hspace{0.5cm} $\blacksquare$
+return the largest element in the list.
+
+$\blacksquare$
 
 
 \end{document}

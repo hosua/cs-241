@@ -1,0 +1,290 @@
+\documentclass{article}
+\title{HW 5}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref} % for hyperlinks
+\usepackage{amssymb}
+\usepackage{authblk}
+\usepackage{minted}   % for code linting
+\usepackage{amsmath}   % big brackets
+\author{Joshua Ortiga \\
+\and
+Xin Li \\
+\and
+Jonathan Le}
+\begin{document}
+
+\maketitle
+\textbf{Problem 5.1.} Find a function $f(n)$ that will provide the $n^{\text{th}}$ Fibonacci 
+
+number.
+\begin{center}
+	$f(n) = f(n-1)+f(n-2)$
+\end{center}
+
+\vspace{0.5cm}
+
+\textbf{Problem 5.2.} Take the following functions and order from smallest to 
+
+largest with respect to their $\Theta$ function.
+
+\vspace{0.25cm}
+
+\textit{Functions:}
+
+log$(x)$, $\sqrt[3]{x}$, $\sqrt[500]{x}$, $1$, $x^2$log$(x)$, $x^{10^{10^{20}}}$, $x^{x}$,
+$\pi(x)$, $x^{2}$, $1.1^{x}$, $x$, $x$log$(x)$, $1.9^{x}$, 
+
+$2.1^{x}$, $x!$
+
+\vspace{0.25cm}
+
+\textit{Sorted:}
+
+$1$, $\sqrt[500]{x}$, $log$(x)$, \sqrt[3]{x}$, $\pi(x)$, $x$, $x$log$(x)$, $x^2$, $x^2$log$(x)$, $x^{10^{10^{20}}}$, $1.1^{x}$, $1.9^{x}$, $2.1^{x}$, 
+
+$x!$, $x^{x}$
+
+\vspace{0.25cm}
+
+$1.1^{x}$, $1.9^{x}$, $2.1^{x}$ \textit{are relatively equal with each other.}
+
+\vspace{0.25cm}
+
+$\sqrt[500]{x}$, $\sqrt[3]{x}$ \textit{are relatively equal with each other.}
+
+\vspace{0.5cm}
+
+\textbf{Problem 5.3.} Assume that the merge operation requires $\Theta(n)$ work, what 
+
+is the $\mathcal{O}$ of merge-sort? (Prove it using the method we showed in class)
+
+\vspace{0.25cm}
+
+$T(1) = 1$
+
+\vspace{0.25cm}
+
+\textit{When splitting the array into a left and right half:}
+
+\vspace{0.1cm}
+
+$\Rightarrow$ $T(n) = 2T(\frac{n}{2}) + cn$
+
+$\Rightarrow$ $T(n) = 2T(\frac{n}{2}) + cn$
+
+$\Rightarrow$ $2T(\frac{n}{4}) + c(\frac{n}{2})$
+
+\vspace{0.2cm}
+ 
+\textit{After performing the merge sort on the left and right half, and then merging}
+
+\textit{the two sorted halves of the array together:}
+
+\vspace{0.1cm}
+
+$\Rightarrow$ $T(n) = 2 [2T(\frac{n}{4}) + c(\frac{n}{2})] + cn$
+
+$\Rightarrow$ $4T(\frac{n}{4}) + 2cn$
+
+\vspace{0.25cm}
+
+\textit{General form:}
+
+\vspace{0.1cm}
+
+$T(n) = 2^k \cdot T(\frac{n}{2^k}) + kcn$ where $n=2^k$, $(\frac{n}{2^k}) = 1$, $k = $log$_2(n)$
+
+\vspace{0.25cm}
+
+\textit{Then substitute k into the general form of T(n) function:}
+
+\vspace{0.1cm}
+
+$T(n) = n \cdot T(1) + $log$_2(n) \cdot cn$
+
+$T(n) = \mathcal{O}(n \cdot $log$(n))$ \hspace{1cm} $\blacksquare$
+
+\vspace{0.5cm}
+
+\textbf{Problem 5.4.} LeetCode problem: Given two input linked lists that 
+
+represent numbers in reverse order (where the first element of the list is the 
+
+last digit, etc), write a function that adds the two numbers together and 
+
+returns a new linked list containing their sum.
+
+\begin{minted}{python}
+	# Definition for singly-linked list.
+	# class ListNode:
+	#   def __init__(self, x):
+	#     self.val = x
+	#     self.next = None
+	class Solution:
+		def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+			x1 = 0
+			x2 = 0
+			count = 0
+
+			while l1!=None and l2!=None:
+				x1 += l1.val * 10**count
+				x2 += l2.val * 10**count
+				l1 = l1.next
+				l2 = l2.next
+				count += 1
+
+			while l1!=None:
+				x1 += l1.val * 10**count
+				l1 = l1.next
+				count += 1
+
+			while l2!=None:
+				x2 += l2.val * 10**count
+				l2 = l2.next
+				count += 1
+
+			ans = x1 + x2
+			head = ListNode(ans % 10)
+			ans //= 10
+			n1 = head
+			
+			while ans:
+				n1.next = ListNode(ans % 10)
+				ans //= 10
+				n1 = n1.next
+
+			return head
+\end{minted}
+
+Give a function (or two) that represents the number of operations (where 
+
+operations are defined as how we listed them in class) as a function of the 
+
+lengths $m$,$n$ of our two input lists $l_1$, $l_2$ respectively. You might need to 
+
+use two functions to represent upper/lower bounds. Then provide the most 
+
+simplified class of $\Omega$, $\mathcal{O}$, and $\Theta$ that this code belongs to.
+
+\vspace{0.5cm} 
+\textit{Best case scenario:}
+
+\textit{Let n = len($l_1$) = len($l_2$).}
+
+\vspace{0.25cm} 
+
+\textit{For all operations outside of any loops, the sum of operations = 14.}
+
+\vspace{0.25cm} 
+
+\textit{Number of operations in the first while loop = 15$\cdot$n.}
+
+\vspace{0.25cm} 
+
+\textit{Both loops are never executed since all nodes are visited in the first loop}
+
+\textit{when m = n. Therefore, number of operations for the second and third }
+
+\textit{loops = 2 (For each loop's comparison operation).}
+
+\vspace{0.25cm} 
+
+\textit{Number of operations in the final while loop = 9$\cdot$(n-1).}
+
+\vspace{0.25cm} 
+
+\textit{$\therefore$ function for best case is: }
+
+\begin{center}
+	\textit{14+15n+2+9(n-1)}
+\end{center}
+
+\vspace{0.5cm} 
+
+\textit{Worst case scenario:}
+
+\textit{Let m = len($l_1$), n = len($l_2$).}
+
+\vspace{0.25cm} 
+
+\textit{Let x = a number comprised of the values in $l_1$.}
+
+\textit{Let y = a number comprised of the values in $l_2$.}
+
+\vspace{0.25cm} 
+
+\textit{In the worst case, two numbers x and y will be two numbers selected, s.t.}
+
+\textit{the result of the adding x+y yields a result s.t. the number of digits of the}
+
+\textit{result = max(m,n)+1. For example, 1+9=10 or 99+1=100.}
+
+\vspace{0.25cm} 
+
+\textit{For all operations outside of any loops, the sum of operations = 14.}
+
+\vspace{0.25cm} 
+
+\textit{Number of operations in the first while loop = 15$\cdot$min(m,n).}
+
+\vspace{0.25cm} 
+
+\textit{The while loop iterating over the linked list with less nodes is skipped, so}
+
+\textit{only one operation is executed for the comparison operation.}
+
+\vspace{0.25cm} 
+
+\textit{The while loop for the linked list containing more nodes is not skipped, and}
+
+\textit{it executes 8$\cdot$abs(m-n) operations.}
+
+\vspace{0.25cm} 
+
+\textit{The number of operations in the final while loop = 9$\cdot$max(n,m) operations.}
+
+\vspace{0.25cm} 
+
+\textit{$\therefore$ the function to find the number of operations in the worst case is:}
+
+\begin{center}
+	\textit{14+(15$\cdot$min(m,n))+1+(8$\cdot$abs(m-n))+(9$\cdot$max(n,m))} 
+\end{center}
+
+$\blacksquare$
+
+\vspace{0.5cm} 
+
+\textbf{Problem 5.5.} \textit{Extra credit}: This problem is a bit challenging so it will 
+
+be worth 10 points of extra credit. For large values of $n$ the exact number 
+
+of operations $f(n)$ approaches the following function 
+
+\begin{center}
+	$\lim\limits_{n \to +\infty} f(n) = k \cdot n!$
+\end{center}
+
+where $n!$ is the factorial of $n$. Find the value of $k$. Because it's so much 
+
+extra credit, there will be no partial credit for this.
+
+\begin{minted}{python}
+	def crappyFactorial(n):
+		if n == 0:
+			return 1
+		elif n == 1:
+			return 1
+		total = 0
+		for (i=0; i < n; i = i + 1):
+			total = total + crappyFactorial(n-1)
+		return total
+\end{minted}
+
+\vspace{0.5cm}
+
+\begin{center}
+	\textit{Left as an exercise for the grader.}
+\end{center}
+
+\end{document}
