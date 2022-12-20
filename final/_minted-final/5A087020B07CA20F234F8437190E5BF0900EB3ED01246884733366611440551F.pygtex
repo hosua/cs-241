@@ -1,0 +1,33 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{n+nt}{\PYGZdq{}lose\PYGZdq{}}\PYG{p}{:}\PYG{+w}{ }\PYG{l+m+mi}{457981}\PYG{p}{,}
+\PYG{+w}{  }\PYG{n+nt}{\PYGZdq{}draw\PYGZdq{}}\PYG{p}{:}\PYG{+w}{ }\PYG{l+m+mi}{102596}\PYG{p}{,}
+\PYG{+w}{  }\PYG{n+nt}{\PYGZdq{}win\PYGZdq{}}\PYG{p}{:}\PYG{+w}{ }\PYG{l+m+mi}{439423}\PYG{p}{,}
+\PYG{+w}{  }\PYG{n+nt}{\PYGZdq{}dealer\PYGZus{}bust\PYGZdq{}}\PYG{p}{:}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZdq{}10\PYGZdq{}}\PYG{p}{:}\PYG{+w}{ }\PYG{l+m+mi}{12044}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZdq{}2\PYGZdq{}}\PYG{p}{:}\PYG{+w}{ }\PYG{l+m+mi}{14301}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZdq{}3\PYGZdq{}}\PYG{p}{:}\PYG{+w}{ }\PYG{l+m+mi}{15201}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZdq{}4\PYGZdq{}}\PYG{p}{:}\PYG{+w}{ }\PYG{l+m+mi}{15997}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZdq{}5\PYGZdq{}}\PYG{p}{:}\PYG{+w}{ }\PYG{l+m+mi}{17867}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZdq{}6\PYGZdq{}}\PYG{p}{:}\PYG{+w}{ }\PYG{l+m+mi}{17621}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZdq{}7\PYGZdq{}}\PYG{p}{:}\PYG{+w}{ }\PYG{l+m+mi}{16162}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZdq{}8\PYGZdq{}}\PYG{p}{:}\PYG{+w}{ }\PYG{l+m+mi}{14546}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZdq{}9\PYGZdq{}}\PYG{p}{:}\PYG{+w}{ }\PYG{l+m+mi}{13568}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZdq{}Ace\PYGZdq{}}\PYG{p}{:}\PYG{+w}{ }\PYG{l+m+mi}{3403}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZdq{}total\PYGZdq{}}\PYG{p}{:}\PYG{+w}{ }\PYG{l+m+mi}{140710}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{},}
+\PYG{+w}{  }\PYG{n+nt}{\PYGZdq{}dealer\PYGZus{}card\PYGZus{}freqs\PYGZdq{}}\PYG{p}{:}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZdq{}10\PYGZdq{}}\PYG{p}{:}\PYG{+w}{ }\PYG{l+m+mi}{99686}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZdq{}2\PYGZdq{}}\PYG{p}{:}\PYG{+w}{ }\PYG{l+m+mi}{100427}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZdq{}3\PYGZdq{}}\PYG{p}{:}\PYG{+w}{ }\PYG{l+m+mi}{99942}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZdq{}4\PYGZdq{}}\PYG{p}{:}\PYG{+w}{ }\PYG{l+m+mi}{100211}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZdq{}5\PYGZdq{}}\PYG{p}{:}\PYG{+w}{ }\PYG{l+m+mi}{99704}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZdq{}6\PYGZdq{}}\PYG{p}{:}\PYG{+w}{ }\PYG{l+m+mi}{99819}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZdq{}7\PYGZdq{}}\PYG{p}{:}\PYG{+w}{ }\PYG{l+m+mi}{100011}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZdq{}8\PYGZdq{}}\PYG{p}{:}\PYG{+w}{ }\PYG{l+m+mi}{100039}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZdq{}9\PYGZdq{}}\PYG{p}{:}\PYG{+w}{ }\PYG{l+m+mi}{99801}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZdq{}Ace\PYGZdq{}}\PYG{p}{:}\PYG{+w}{ }\PYG{l+m+mi}{100360}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZdq{}total\PYGZdq{}}\PYG{p}{:}\PYG{+w}{ }\PYG{l+m+mi}{1000000}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -9,6 +9,7 @@
 \usepackage{hyperref}
 \usepackage{graphicx} % images
 \usepackage{listings, lstautogobble} % gobble
+\usepackage{float}
 
 \author{Joshua Ortiga \\
 \and
@@ -20,6 +21,8 @@ Jonathan Le}
 
 \setlength{\parskip}{\baselineskip}%
 \newpage
+
+{\parindent0pt % remove indent
 
 \section{Background}
 \label{sec: Background}
@@ -51,7 +54,7 @@ Jonathan Le}
 		Since betting money is outside the scope of our experiment, any time the chart insists on doubling down, 
 		it will instead be assumed to be a hit.
 		
-		\begin{figure}
+		\begin{figure}[H]
 			\begin{center}
 				\hypertarget{fig1}{}
 				\includegraphics[width=12cm]{blackjack-chart.png}
@@ -107,7 +110,8 @@ Jonathan Le}
 			\item \textit{optimal\_nofaces.py} - Simulates games of Blackjack with our new optimal strategy given no face cards.
 			\item \textit{calc\_busts.py} - Simulates games of Blackjack with no face cards, and records the statistics of the frequency that the dealer busts, as well as which card the dealer 
 				had face-up when they busted.
-				
+			\item \textit{make\_pie\_chart.py} - Script that graphs the data from the results of \textit{calc\_busts.py} and calculates
+				the rates in which the dealer busts, given the dealer's face up card.
 		\end{enumerate}
 
 \vspace{0.5cm}
@@ -118,7 +122,6 @@ Jonathan Le}
     \subsection{Optimal Strategy for Vanilla Blackjack}
 	\label{Optimal Strategy for Vanilla Blackjack}
 		
-		{\parindent0pt % remove indent
 		Before running simulations for the modified game rules, simulations of standard Blackjack were ran using the optimal strategy depicted in \hyperlink{fig1}{\textit{Figure 1}}.
 		
 		The Blackjack simulator relies on two dictionaries \textit{hard\_hands} and \textit{soft\_hands} to decide whether or not the player should hit.
@@ -130,129 +133,124 @@ Jonathan Le}
 		The dict keys are based on the card that the dealer has face up during the player's turn.
 		The dict values are pairs consisting of two integers that represent the inclusive range that the player will hit. 
 		Note that dict keys 1 and 11 indicate that the dealer has an Ace as their face-up card.
-		}
 
     \begin{minted}{python}
-			hard_hands = {
-				1: (4,17), # Dealer has ace
-				2: (4,12),
-				3: (4,12),
-				4: (4,11),
-				5: (4,11),
-				6: (4,11),
-				7: (4,16),
-				8: (4,16),
-				9: (4,16),
-				10: (4,16),
-				11: (4,17), # Dealer has ace
-			}
+hard_hands = {
+	1: (4,17), # Dealer has ace
+	2: (4,12),
+	3: (4,12),
+	4: (4,11),
+	5: (4,11),
+	6: (4,11),
+	7: (4,16),
+	8: (4,16),
+	9: (4,16),
+	10: (4,16),
+	11: (4,17), # Dealer has ace
+}
 
-			soft_hands = {
-				1: (12,18), # Dealer has ace
-				2: (12,18), 
-				3: (12,18), 
-				4: (12,18), 
-				5: (12,18), 
-				6: (12,18), 
-				7: (12,17), 
-				8: (12,17), 
-				9: (12,18), 
-				10: (12,18), 
-				11: (12,18), # Dealer has ace
-			}
+soft_hands = {
+	1: (12,18), # Dealer has ace
+	2: (12,18), 
+	3: (12,18), 
+	4: (12,18), 
+	5: (12,18), 
+	6: (12,18), 
+	7: (12,17), 
+	8: (12,17), 
+	9: (12,18), 
+	10: (12,18), 
+	11: (12,18), # Dealer has ace
+}
         \end{minted}
 
-        \hspace{-0.5cm}After running one million trials of Blackjack games using the standard strategy on a regular deck of cards, the results 
+        After running one million trials of Blackjack games using the standard strategy on a regular deck of cards, the results 
 		were as follows:
 
-        \begin{minted}{json}
-                {
-                    "lose": 475543,
-                    "draw": 83990,
-                    "win": 440467
-                }
+		\begin{minted}{json}
+{
+  "lose": 475950,
+  "draw": 83739,
+  "win": 440311
+}
         \end{minted}
-
-		Interestingly enough, even when playing with the most optimal strategy, the player is still expected to lose more games than they win.
-		This makes sense because house always has edge.
-
-		Now that the data for a standard game of Blackjack has been established, let's run simulations using same strategy on a deck of cards 
-		with no faces.
         
-		\begin{figure}
+		\begin{figure}[H]
 			\hypertarget{fig2}{}
 			\begin{center}
-				\includegraphics[width=9.5cm]{optimalV.png}
+				\includegraphics[width=9.5cm]{optimal-vanilla.png}
 			\end{center}
 			\vspace{-10mm}
 			\caption{Optimal Vanilla Strategy}
 		\end{figure}
-		\vspace{2.5cm}
 
-        \hspace{-0.5cm}After running one million trials using the same strategy on the no-face deck, these results were as follows:
+		Interestingly enough, even when playing with the most optimal strategy, the player is still expected to lose more games than they win.
+		This makes sense because house always has edge. The fact that the player goes first means that the dealer doesn't have to
+		play all of their hands, which leans towards the player losing more games overall.
+
+		Now that the data for a standard game of Blackjack has been established, let's run simulations using same strategy on a deck of cards 
+		with no faces.
 
         \begin{minted}{json}
-                {
-                    "lose": 509087,
-                    "draw": 82112,
-                    "win": 408801
-                }
+{
+  "lose": 509313,
+  "draw": 81908,
+  "win": 408779
+}
         \end{minted}
+        
+		\begin{figure}[H]
+			\hypertarget{fig3}{}
+			\begin{center}
+				\includegraphics[width=9.5cm]{unoptimal-no-faces.png}
+			\end{center}
+			\vspace{-10mm}
+			\caption{Unoptimal No Faces Strategy}
+		\end{figure}
 
 		These results are definitely much worse! However, this does line up with expectations. The strategy for vanilla Blackjack shouldn't 
 		work well on a deck with no face cards because the strategy is based on the fact that many cards are worth 10 points (10's, Jacks, 
 		Queens, and Kings). Since we removed all the face cards from the deck, this is no longer the case. We must now change our strategy to 
 		hit more often since the probability of busting is now lower without the face cards.
         
-		\begin{figure}
-			\hypertarget{fig2}{}
-			\begin{center}
-				\includegraphics[width=9.5cm]{unoptimalNF.png}
-			\end{center}
-			\vspace{-10mm}
-			\caption{Optimal Vanilla Strategy}
-		\end{figure}
-        
         \subsection{Modified Strategy For No-Face Blackjack}
 		\label{Modified Strategy For No-Face Blackjack}
-		\vspace{1cm}
         
-		{\parindent0pt % remove indent
 			For our \textit{hard\_hands} dict, the lower bounds of our hit ranges will remain unchanged. 
 
 			The only changes that will be made to the \textit{hard\_hands} will be the upper bounds for the keys 2 through 6 inclusive.
 			All of their upper bounds will be changed to 16 which will increase how often the simulation will hit. 
 			Since there are no face cards, 10 is now the only card valued at 10 points,
-			which further implies that the probabilities of the player drawing a card of each value (1 through 11) all now follow an even 
+			which further implies that the probabilities of the player (and dealer) drawing a card of each value (1 through 11) all now follow an even 
 			distribution (when not considering the probabilities of cards that have already been drawn). 
 
-			Since the points of the cards in the deck are evenly distributed with no face cards, hitting when the player is over 11 points 
+			Since the points of the cards in the deck are evenly distributed with no face cards, hitting when the player is at 12 or more points 
 			is no longer a high risk move as it normally would be in vanilla Blackjack. In vanilla Blackjack, the odds are against you if hit when 
 			at 12 or more points because 10's, Jacks, Queens, and Kings are all worth 10 points. Therefore, the odds of drawing a card worth 
 			10 points is 4 times more likely than drawing a card of any other value. However, in our deck with no face cards, this is not the case,
 			which makes hitting when above 12 points much safer than it normally is, and thus a good motive to change our strategy to fit our new
 			deck better.
 
+			Another important factor to consider is that these rules also apply to the dealer, therefore, we must also develop our strategy
+			around the idea that the dealer will have higher odds of not busting as well.
 
-        
-        
+       	\vspace{1cm} 
 		Optimal \textit{hard\_hands} for deck with no faces:
         \begin{minted}{python}
-                hard_hands = {
-                        1: (4,17), # Dealer has ace
-                        2: (4,16),
-                        3: (4,16),
-                        4: (4,16),
-                        5: (4,16),
-                        6: (4,16),
-                        7: (4,16),
-                        8: (4,16),
-                        9: (4,16),
-                        10: (4,16),
-                        11: (4,17), # Dealer has ace
-                    }
+hard_hands = {
+  1: (4,17), # Dealer has ace
+  2: (4,16),
+  3: (4,16),
+  4: (4,16),
+  5: (4,16),
+  6: (4,16),
+  7: (4,16),
+  8: (4,16),
+  9: (4,16),
+  10: (4,16),
+  11: (4,17), # Dealer has ace
+}
         \end{minted}
-
 		
 		The \textit{soft\_hands} remains unchanged, and will be omitted from this section.
 
@@ -260,141 +258,113 @@ Jonathan Le}
 		were as follows:
 
         \begin{minted}{json}
-                {
-                    "lose": 457774,
-                    "draw": 102835,
-                    "win": 439391
-                }
+{
+  "lose": 457099,
+  "draw": 102895,
+  "win": 440006
+}
         \end{minted}
 
-		\begin{figure}
-			\hypertarget{fig3}{}
+		This looks much better! Since the face cards are removed from the deck, a lot of the house edge is no longer there,
+		so the player actually has better odds of winning.
+
+		\begin{figure}[H]
+			\hypertarget{fig4}{}
 			\begin{center}
-				\includegraphics[width=9.5cm]{optimalNF.png}
+				\includegraphics[width=9.5cm]{optimal-no-faces.png}
 			\end{center}
+			\vspace{-10mm}
+			\caption{Optimal No Faces}
 		\end{figure}
         
         \subsection{Testing Our New Strategy}
         \label{Testing Our New Strategy}
+		
+		Now that it has been verified that the new strategy is better, the next step is to calculate the frequencies
+		at which the dealer busts with their respective face up card. This is a necessary step for verifying that our 
+		chosen ranges are the actual best for our modified deck.
 
-        Test results after running the standard strategy one million times with the modified no-face deck:
-
-			
-		}
+		Calculating the frequencies for the optimized strategy yields:
 
         \begin{minted}{json}
-                {
-                    "lose": 509432,
-                    "draw": 81430,
-                    "win": 409138,
-                    "dealer_bust": {
-                        "10": 12127,
-                        "2": 20734,
-                        "3": 22150,
-                        "4": 24376,
-                        "5": 26588,
-                        "6": 26146,
-                        "7": 16392,
-                        "8": 14458,
-                        "9": 13691,
-                        "Ace": 3518,
-                        "total": 180180
-                    },
-                    "dealer_card_freqs": {
-                        "10": 100209,
-                        "2": 100328,
-                        "3": 100232,
-                        "4": 99618,
-                        "5": 100033,
-                        "6": 99812,
-                        "7": 100654,
-                        "8": 99443,
-                        "9": 99926,
-                        "Ace": 99745,
-                        "total": 1000000
-                    }
-                }
+{
+  "lose": 457981,
+  "draw": 102596,
+  "win": 439423,
+  "dealer_bust": {
+    "10": 12044,
+    "2": 14301,
+    "3": 15201,
+    "4": 15997,
+    "5": 17867,
+    "6": 17621,
+    "7": 16162,
+    "8": 14546,
+    "9": 13568,
+    "Ace": 3403,
+    "total": 140710
+  },
+  "dealer_card_freqs": {
+    "10": 99686,
+    "2": 100427,
+    "3": 99942,
+    "4": 100211,
+    "5": 99704,
+    "6": 99819,
+    "7": 100011,
+    "8": 100039,
+    "9": 99801,
+    "Ace": 100360,
+    "total": 1000000
+  }
+}
         \end{minted}
 
-		\begin{figure}
-			\hypertarget{fig4}{}
+		\begin{figure}[H]
+			\hypertarget{fig5}{}
 			\begin{center}
-				\includegraphics[width=9.5cm]{bustfreq.png}
-				\caption{Dealer bust frequencies in 1,000,000 games}
+				\includegraphics[width=9.5cm]{bust-data-optimal.png}
+				\caption{Dealer bust frequencies using optimal strategy}
 			\end{center}
 		\end{figure}
 
-		{\parindent0pt % remove indent
-        
+		The probability of the dealer busting can be calculated from the the fields: \textit{dealer\_bust} and 
+		\textit{dealer\_card\_freqs} with the keys being the card that 
+		the dealer has face up at the start of the game. With the values stored in these dicts, we can apply the following formula:
+		$\frac{dealer\_bust}{dealer\_card\_freqs}$ 
 
-        \textbf{Reasoning behind modified hard hands strategy when dealer's face up card is an ace (assuming player total hand is consisting of only two cards):}
+		For example, taken from the calculations in the optimal strategy calculations we get the following probabilities:
 
-        
+		$\frac{12044}{99686} = 0.121$
 
-        In the two cases where the Dealer has an ace, and player doesn't, the chances of the the dealer's face down card being an ace is $\frac{3}{37} = 0.0810810810810811$. Combinations of cards in players hand that add up to 17: (7, 10), (8, 9).
+		$\frac{14301}{100427} = 0.142$
 
-        
-        
-        Number of cards remaining in deck within the bust threshold (assuming dealer's other card is a card that's 4 or below): $(6 \cdot 4) - 2 = 22$. Number of cards remaining in the deck below the bust threshold: $(4 \cdot 4) - 2 = 14$. If the player stands at 18, the dealer has to bust for the player to win.
-        
-        
-        
-        Probability of player busting: $\frac{22}{36}$ = 0.6111
+		$\frac{15201}{99942} = 0.152$
 
-        
+		$\hspace{1cm}\vdots$
 
-        Probability of dealer busting calculated with $\frac{dealer\_bust}{dealer\_card\_freqs}$ Key being starting face up card:
-        \begin{itemize}
-            \item Ace: $\frac{3518}{99745} = 0.035$
-        \end{itemize}
+		All of the probabilities for the optimal strategy were calculated using the \textit{make\_pie\_chart.py} script and are displayed in
+		the legend of \hyperlink{fig6}{\textit{Figure 6}}. The peak of the curve is when the dealer shows 5 and 6, where the dealer is most likely
+		to bust.
 
-        
+		\begin{figure}[H]
+			\hypertarget{fig6}{}
+			\begin{center}
+				\includegraphics[width=15.5cm]{dealer-pie-chart-optimal.png}
+				\caption{Dealer bust rates using optimal strategy}
+			\end{center}
+		\end{figure}
 
-        \textbf{Reasoning behind modified hard hands strategy when dealer's face up card is not an ace (assuming player total hand is consisting of only two cards):}
+		The results displayed in \hyperlink{fig6}{\textit{Figure 6}} indicate that the dealer also has a much lower rate of busting
+		when playing with their fixed strategy (not hitting when over 16). 
 
-        
+		The rates at which the dealer busts should roughly follow a perfect bell-curve, with the Ace cards being an expected outlier (due
+		to the nature of it being valued at 1 or 11), as well as 10, because its counterpart would be the theoretical 1 card which, in Blackjack
+		is our outlier, the Ace.
+		This is shown to indeed be true in \hyperlink{fig6}{\textit{Figure 6}}.
 
-        In the rest of the cases where the Dealer doesn't have an ace, and the player doesn't, the chances of the dealer's face down card being an ace is $\frac{4}{37} = 0.1081081081081081$. Combinations of cards in players hand that add up to 16: (6, 10), (7, 9), (8, 8).
-
-        
-        
-         Number of cards remaining in deck within the bust threshold (assuming dealer's other card is a card that's 4 or below): $(5 \cdot 4) - 2 = 18$. Number of cards remaining in deck below the bust threshold: $(5 \cdot 4) - 2 = 18$. If the player stands at 17, the dealer has to bust for the player to win.
-        
-        
-        
-        Probability of player busting: $\frac{18}{36}$ = 0.5
-
-        
-
-		}
-
-        \hspace{-0.5cm}Probability of dealer busting calculated with $\frac{dealer\_bust}{dealer\_card\_freqs}$ Key being starting face up card:
-        \begin{itemize}
-            \item Two: $\frac{20734}{100328} = 0.21$
-            \item Three: $\frac{22150}{100232} = 0.22$
-            \item Four: $\frac{24376}{99618} = 0.24$
-            \item Five: $\frac{26588}{100033} = 0.27$
-            \item Six: $\frac{26146}{99812} = 0.26$
-            \item Seven: $\frac{16392}{100654} = 0.16$
-            \item Eight: $\frac{14458}{99443} = 0.15$
-            \item Nine: $\frac{13691}{99926} = 0.14$
-            \item Ten: $\frac{12127}{100209} = 0.12$
-        \end{itemize}
-
-        \begin{center}
-			\includegraphics[width=9.5cm]{pie-chart.png}
-		\end{center}
-
-        Although the dealer's bust rates is much lower than the player's, if the player were to hit at 18 and above, the chances of busting would be much higher and not ideal. The mean bust rate of the dealer without an ace as a starting card would be: $\frac{sum\_of\_all\_bust\_rates}{9} = 0.197$ 
-        This is equivalent to the player having a 20\% chance of winning the game and an even higher chance of getting a tie. 
-
-        \vspace{0.25cm}
-
-        Now if we observe the dealer's bust rates, we can see that the bust rates peak when they have a 5 as a starting face up card. Additionally, the bust rates are much lower from 7-10 (starting card) as compared to 2-6 for the dealer. This is because the dealer has a much higher chance of drawing a card that puts them at 17 or above when the dealer already has a starting face-up card that's more than 6, which lowers their chances of busting since they will not draw as much. The chances of the dealer busting if his starting card is 6 or below is much higher since there is a good chance that they could draw more times and not be at 17 yet. 
-
-        \vspace{0.25cm}
-
-        When the dealer's starting face-up card is an ace, this means it could either be an 11 if it doesn't put them over 21, or a 1 if it does. This explains why the bust rate for when the dealer has an ace is so low at 3.5\%. The amount of times they draw is dependent on their current ace's value, which lowers their bust rate significantly.
+		Some further tests were ran using different betting threshholds, but none of them ended up with better results than our chosen
+		strategy.
 
         
 \section{Summary}
@@ -410,10 +380,11 @@ Jonathan Le}
         \subsection{Table For No-Face Blackjack Strategy}
 	\label{Table For No-Face Blackjack Strategy}
          
-		\begin{figure}
-			\hypertarget{fig5}{}
+		\begin{figure}[H]
+			\hypertarget{fig7}{}
 			\begin{center}
 				\includegraphics[width=9.5cm]{modified-table-strat.png}
+				\caption{New optimal strategy}
 			\end{center}
 		\end{figure}
 
@@ -430,9 +401,8 @@ Jonathan Le}
         
         As for potential consequences in the casino industry, many casinos use numerous decks at once to mitigate much of the variation that comes with removing cards from the deck. This, however, doesn't completely nullify these changes. It is unlikely for a single person to completely memorize charts and tables for a given scenario of the deck, but with the rise in augmented reality technology, new programs and software similar to this, in the aspect of giving optimal moves to players, can be used to give players a heavy advantage, assuming players are able to use them without notice.
 
-\section{Works Cited}
-\label{sec: Works Cited}
-{\parindent0pt % remove indent
+	\section{Works Cited}
+	\label{sec: Works Cited}
 
 	\href{https://github.com/hosua/blackjack-cs241}{Blackjack Simulator}
 
